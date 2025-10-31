@@ -21,6 +21,7 @@ export function initNewScreen() {
       e.preventDefault();
 
       const newRecord = {
+        name: form.kataname.value, // ✅ Record.name に対応（必須）
         machine: form.machine.value,
         kataban: form.kataban.value,
         kataname: form.kataname.value,

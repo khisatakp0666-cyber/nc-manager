@@ -1,52 +1,84 @@
-// 📄 LockController.java
+// 📄 LockController.java：編集ロック管理API（ファイルベース）
 
 package org.recordapi.controller;
 
-import org.recordapi.model.LockInfo;
-import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.*;
+import java.nio.file.*;
+import java.time.Instant;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/lock")
 public class LockController {
 
-    // ✅ メモリ上でロック状態を保持（保守性重視）
-    private final Map<Long, LockInfo> lockMap = new ConcurrentHashMap<>();
+    private static final Path LOCK_FILE = Paths.get("data", "lock.json");
 
-    // ✅ ロック状態を取得
+    // ✅ ロック情報の読み込み
+    @SuppressWarnings("unchecked")
+    private Map<String, Map<String, Object>> loadLocks() {
+        if (!Files.exists(LOCK_FILE))
+            return new HashMap<>();
+        try (Reader reader = Files.newBufferedReader(LOCK_FILE)) {
+            return new ObjectMapper().readValue(reader, Map.class);
+        } catch (IOException e) {
+            return new HashMap<>();
+        }
+    }
+
+    // ✅ ロック情報の保存
+    private void saveLocks(Map<String, Map<String, Object>> locks) {
+        try (Writer writer = Files.newBufferedWriter(LOCK_FILE)) {
+            new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(writer, locks);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ✅ ロック状態の取得
     @GetMapping("/{id}")
-    public ResponseEntity<LockInfo> getLock(@PathVariable Long id) {
-        LockInfo info = lockMap.get(id);
-        if (info == null) {
-            return ResponseEntity.ok(new LockInfo(false, null)); // ロックなし
-        }
-        return ResponseEntity.ok(info);
+    public ResponseEntity<Map<String, Object>> getLockStatus(@PathVariable String id) {
+        Map<String, Map<String, Object>> locks = loadLocks();
+        boolean locked = locks.containsKey(id) && Boolean.TRUE.equals(locks.get(id).get("locked"));
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("locked", locked);
+        return ResponseEntity.ok(result);
     }
 
-    // ✅ ロックを設定
+    // ✅ ロックの取得（PUT）
     @PutMapping("/{id}")
-    public ResponseEntity<?> lock(@PathVariable Long id) {
-        LockInfo info = lockMap.get(id);
-        if (info != null && info.isLocked()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("既にロックされています");
-        }
-        lockMap.put(id, new LockInfo(true, "admin")); // 固定ユーザー名（必要ならセッション対応可）
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Map<String, Object>> lock(@PathVariable String id, @RequestBody Map<String, String> body) {
+        String user = body.getOrDefault("user", "admin");
+
+        Map<String, Map<String, Object>> locks = loadLocks();
+        Map<String, Object> lockInfo = new HashMap<>();
+        lockInfo.put("locked", true);
+        lockInfo.put("lockedBy", user);
+        lockInfo.put("lockedAt", Instant.now().toString());
+        locks.put(id, lockInfo);
+        saveLocks(locks);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("locked", true);
+        return ResponseEntity.ok(result);
     }
 
-    // ✅ ロックを解除
+    // ✅ ロック解除（DELETE）
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> unlock(@PathVariable Long id) {
-        lockMap.remove(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Map<String, Object>> unlock(@PathVariable String id) {
+        Map<String, Map<String, Object>> locks = loadLocks();
+        locks.remove(id);
+        saveLocks(locks);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("locked", false);
+        return ResponseEntity.ok(result);
     }
 }

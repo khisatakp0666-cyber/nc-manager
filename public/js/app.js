@@ -53,14 +53,58 @@ export const API_BASE =
     ? "http://localhost:8085"
     : "http://C20:8085"; // ← Spring Boot のポートに合わせて修正
 
-// ✅ レコード一覧の取得関数（必要に応じて export）
+// ✅ レコード一覧の取得関数（UIエラー表示付き）
 export async function loadRecords() {
   try {
     const response = await fetch(`${API_BASE}/api/records`);
+    if (!response.ok) throw new Error("HTTPエラー");
     const records = await response.json();
     return records;
   } catch (err) {
     console.error("レコード取得に失敗しました", err);
+    showError("レコードの取得に失敗しました。サーバーが起動しているか確認してください。");
     return [];
+  }
+}
+
+// ✅ ロック状態の取得（GET /api/lock/:id）
+export async function fetchLockStatus(id) {
+  try {
+    const response = await fetch(`${API_BASE}/api/lock/${id}`);
+    if (!response.ok) throw new Error("ロック状態の取得に失敗");
+    return await response.json(); // { id, locked: true/false }
+  } catch (err) {
+    console.error(`ロック状態の取得に失敗しました (id=${id})`, err);
+    return { id, locked: false }; // ← 安全側に倒す
+  }
+}
+
+// ✅ ロックの取得（POST /api/lock/:id）
+export async function lockRecord(id, user = "admin") {
+  try {
+    const response = await fetch(`${API_BASE}/api/lock/${id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user })
+    });
+    if (!response.ok) throw new Error("ロックに失敗");
+    return await response.json(); // { id, locked: true }
+  } catch (err) {
+    console.error(`ロックに失敗しました (id=${id})`, err);
+    return { id, locked: false };
+  }
+}
+
+// ✅ ロック解除（DELETE /api/lock/:id）
+export async function unlockRecord(id) {
+  try {
+    const response = await fetch(`${API_BASE}/api/lock/${id}`, {
+      method: "DELETE"
+    });
+    if (!response.ok) throw new Error("ロック解除に失敗");
+    return await response.json(); // { id, locked: false }
+  } catch (err) {
+    console.error(`ロック解除に失敗しました (id=${id})`, err);
+    return { id, locked: true };
   }
 }
