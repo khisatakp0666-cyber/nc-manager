@@ -7,6 +7,12 @@ npm start
 # ブラウザでアクセス
 http://localhost:3000/index.html
 
+cd C:\Users\C20\Desktop\project-shared\record-api
+netstat -ano | findstr :8085
+./gradlew clean build
+cd build/libs
+java -jar record-api-0.0.1-SNAPSHOT.jar
+
 # ブラウザキャッシュを強制クリア
 Ctrl + Shift + R
 

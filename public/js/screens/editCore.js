@@ -1,4 +1,4 @@
-//📄 editCore.js：編集画面の主要処理（レコード取得・保存・フォーム反映
+// 📄 editCore.js：編集画面の主要処理（レコード取得・保存・フォーム反映）
 
 import { API_BASE } from "../app.js";
 import { toUpperHalf } from "../shared/formatUtils.js";
@@ -22,8 +22,12 @@ export async function initEditCore() {
         return null;
     }
 
-    // ✅ ロック取得
-    await fetch(`${API_BASE}/api/lock/${recordId}`, { method: "PUT" });
+    // ✅ ロック取得（← 推奨：空でも JSON ボディを送る）
+    await fetch(`${API_BASE}/api/lock/${recordId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user: "admin" }) // ← ここが重要
+    });
 
     // ✅ レコード取得
     const res = await fetch(`${API_BASE}/api/records/${recordId}`);
