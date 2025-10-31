@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSV入出力</title>
+  <link rel="stylesheet" href="./css/export.css" />
+  <link rel="icon" href="data:,">
+</head>
+
+<body>
+  <h1>📥📤 CSV入出力</h1>
+
+  <!-- 🔙 一覧へ戻る -->
+  <p><a href="index.html" class="button">🔙 一覧へ戻る</a></p>
+
+  <!-- 📊 出力条件フォーム -->
+  <form id="csvForm">
+    <!-- 🔍 絞り込み条件 -->
+    <fieldset>
+      <legend>🔍 絞り込み条件</legend>
+      <label for="status">状態:</label>
+      <select name="status" id="status">
+        <option value="">すべて</option>
+        <option value="未使用">未使用</option>
+        <option value="使用済み">使用済み</option>
+      </select>
+
+      <label for="machine">機種:</label>
+      <input type="text" name="machine" id="machine" placeholder="例: MC-1000" />
+
+      <label for="from">更新日（開始）:</label>
+      <input type="date" name="from" id="from" />
+
+      <label for="to">更新日（終了）:</label>
+      <input type="date" name="to" id="to" />
+    </fieldset>
+
+    <!-- 📋 出力する項目 -->
+    <fieldset>
+      <legend>📋 出力する項目</legend>
+      <div class="column-grid">
+        <label for="col-machine">機名:</label>
+        <input type="checkbox" id="col-machine" name="columns" value="machine" />
+
+        <label for="col-kataban">片番:</label>
+        <input type="checkbox" id="col-kataban" name="columns" value="kataban" />
+
+        <label for="col-kataname">片名:</label>
+        <input type="checkbox" id="col-kataname" name="columns" value="kataname" />
+
+        <label for="col-drawing">図番:</label>
+        <input type="checkbox" id="col-drawing" name="columns" value="drawing" />
+
+        <label for="col-comment">コメント:</label>
+        <input type="checkbox" id="col-comment" name="columns" value="comment" />
+
+        <label for="col-status">状態:</label>
+        <input type="checkbox" id="col-status" name="columns" value="status" />
+
+        <label for="col-updatedAt">更新日:</label>
+        <input type="checkbox" id="col-updatedAt" name="columns" value="updatedAt" />
+
+        <label for="col-history">編集履歴:</label>
+        <input type="checkbox" id="col-history" name="columns" value="history" />
+      </div>
+
+      <!-- ✅ 全部選択・全部解除ボタン -->
+      <div style="margin-top: 8px;">
+        <button type="button" id="selectAllColumns" class="button">✅ 全部選択</button>
+        <button type="button" id="clearAllColumns" class="button">❌ 全部解除</button>
+      </div>
+    </fieldset>
+
+    <!-- 📛 ファイル名の指定 -->
+    <fieldset>
+      <legend>📛 ファイル名の指定（任意）</legend>
+      <label for="filename">出力ファイル名（.csvは不要）:</label>
+      <input type="text" name="filename" id="filename" placeholder="例: MC1000_未使用_0825" />
+    </fieldset>
+
+    <!-- 📤 CSV出力 + 📦 ZIP出力ボタン -->
+    <div class="button-row">
+      <button type="submit" class="button">📤 CSV出力</button>
+      <button type="button" id="exportZipButton" class="button">📦 ZIP一括出力</button>
+    </div>
+  </form>
+
+  <!-- 📥 CSV入力 -->
+  <h2>📥 CSV入力</h2>
+  <p>CSVファイルを選択して取り込むには、以下の画面へ移動してください。</p>
+  <p><a href="import.html" class="button">📥 CSV入力画面へ</a></p>
+
+  <!-- 📜 JS連携 -->
+  <script type="module" src="./js/screens/exportScreen.js"></script>
+</body>
+
+</html>

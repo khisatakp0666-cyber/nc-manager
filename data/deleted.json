@@ -1,0 +1,86 @@
+[
+  {
+    "machine": "MC500",
+    "kataban": "ABC123",
+    "kataname": "ABC加工",
+    "drawing": "D12345",
+    "comment": "加工条件を調整済み。右端に注意点あり。",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-08-22T13:45:00+09:00",
+    "updatedAt": "2025-08-22T13:45:00+09:00",
+    "deletedAt": "2025-08-22T14:10:00+09:00"
+  },
+  {
+    "machine": "GS-101AN",
+    "kataban": "201A",
+    "kataname": "TAILSTOCK BASE",
+    "drawing": "B-789-0",
+    "comment": "",
+    "status": "使用済み",
+    "createdBy": "admin",
+    "createdAt": "2025-08-22T06:03:00.992Z",
+    "updatedAt": "2025-08-22T06:03:24.165Z",
+    "deletedAt": "2025-08-22T06:03:34.228Z"
+  },
+  {
+    "machine": "RE-101N",
+    "kataban": "101B",
+    "kataname": "plate",
+    "drawing": "B-1045-0",
+    "comment": "",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-08-22T07:50:19.844Z",
+    "updatedAt": "2025-08-22T07:50:37.441Z",
+    "deletedAt": "2025-08-22T10:27:57.627Z"
+  },
+  {
+    "machine": "LT-1",
+    "kataban": "201A",
+    "kataname": "TAILSTOCK BASE",
+    "drawing": "B-7891-0",
+    "comment": "構成検討-ok",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-08-22T06:03:20.264Z",
+    "updatedAt": "2025-08-22T07:03:09.031Z",
+    "deletedAt": "2025-09-02T02:21:10.777Z"
+  },
+  {
+    "machine": "MC500",
+    "kataban": "ABC123",
+    "kataname": "ABC加工",
+    "drawing": "D12345-0",
+    "comment": "加工条件を調整済み。右端に注意点あり。",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-08-22T13:45:00+09:00",
+    "updatedAt": "2025-08-22T10:27:48.384Z",
+    "deletedAt": "2025-09-02T02:21:14.250Z"
+  },
+  {
+    "machine": "GS-101AN",
+    "kataban": "201A",
+    "kataname": "TAILSTOCK BASE",
+    "drawing": "B-7891-0",
+    "comment": "",
+    "status": "使用済み",
+    "createdBy": "admin",
+    "createdAt": "2025-08-22T06:03:45.400Z",
+    "updatedAt": "2025-08-22T07:12:41.248Z",
+    "deletedAt": "2025-09-02T02:21:17.095Z"
+  },
+  {
+    "machine": "RE-101N",
+    "kataban": "101B",
+    "kataname": "plate",
+    "drawing": "B-1045-0",
+    "comment": "",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-08-22T10:28:10.784Z",
+    "updatedAt": "2025-08-22T10:28:10.784Z",
+    "deletedAt": "2025-09-02T02:21:20.787Z"
+  }
+]

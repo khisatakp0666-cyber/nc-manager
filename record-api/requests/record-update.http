@@ -1,0 +1,9 @@
+### PUT レコード更新（ID: 8）
+# 期待レスポンス: HTTP 200 OK + 更新されたレコードのJSON
+PUT POST http://localhost:8085/api/records
+Content-Type: application/json
+
+{
+  "name": "Updated Record",
+  "description": "Modified via VS Code"
+}

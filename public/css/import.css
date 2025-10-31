@@ -1,0 +1,25 @@
+.preview-table {
+    border-collapse: collapse;
+    margin-top: 1em;
+    width: 100%;
+}
+
+.preview-table th,
+.preview-table td {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    text-align: left;
+}
+
+.preview-table th {
+    background-color: #f0f0f0;
+}
+
+.error-row {
+    background-color: #ffe4e4;
+    color: #b00000;
+}
+
+.preview-table input[type="checkbox"] {
+    transform: scale(1.2);
+}

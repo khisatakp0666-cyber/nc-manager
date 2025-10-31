@@ -1,0 +1,93 @@
+/* ===============================
+   全体のフォントと余白設定
+================================= */
+body {
+  font-family: sans-serif;
+  margin: 2em;
+}
+
+/* ===============================
+   テーブルのスタイル
+================================= */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1em;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+/* 行ホバー時の背景色（視認性向上） */
+tr:hover td {
+  background-color: #f9f9f9;
+}
+
+/* 空メッセージ用のスタイル */
+td.empty-message {
+  color: #888;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===============================
+   ボタンの基本スタイル
+================================= */
+.button {
+  margin: 6px;
+  padding: 6px 12px;
+  font-weight: bold;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* ホバー時の色変更 */
+.button:hover {
+  background-color: #003d80;
+}
+
+/* フォーカス時の枠線（アクセシビリティ対応） */
+.button:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+/* ===============================
+   ボタンのバリエーション
+================================= */
+
+/* 復元ボタン */
+.button.restore {
+  background-color: #28a745;
+}
+.button.restore:hover {
+  background-color: #1f7a36;
+}
+
+/* 戻るボタン */
+.button.back {
+  background-color: #6c757d;
+}
+.button.back:hover {
+  background-color: #555;
+}
+
+/* 全削除ボタン */
+.button.delete-all {
+  background-color: #dc3545;
+}
+.button.delete-all:hover {
+  background-color: #a71d2a;
+}

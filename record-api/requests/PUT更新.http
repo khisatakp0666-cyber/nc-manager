@@ -1,0 +1,7 @@
+PUT /api/records/7
+Content-Type: application/json
+
+{
+  "name": "Updated Record",
+  "description": "Modified via VS Code"
+}

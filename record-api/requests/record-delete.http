@@ -1,0 +1,3 @@
+### DELETE レコード削除（ID: 8）
+# 期待レスポンス: HTTP 204 No Content（削除成功）
+DELETE POST http://localhost:8085/api/records

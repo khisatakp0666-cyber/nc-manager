@@ -1,0 +1,2 @@
+# null解析の警告を無効化
+org.eclipse.jdt.core.compiler.problem.nullUncheckedConversion=ignore

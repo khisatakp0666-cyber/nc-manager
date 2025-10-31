@@ -1,0 +1,30 @@
+# 改行コードの統一（基本）
+* text=auto
+
+# Unix系スクリプトは LF 改行
+*.sh text eol=lf
+/mvnw text eol=lf
+
+# Windowsバッチは CRLF 改行
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Markdown / JSON / YAML は LF 改行で統一
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+
+# Javaファイルは LF 改行（推奨）
+*.java text eol=lf
+
+# バイナリファイル（差分を出さない）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+
+# IDE設定ファイル（競合回避したい場合）
+*.iml merge=ours
+.idea/* merge=ours
+.vscode/* merge=ours

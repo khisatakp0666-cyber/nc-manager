@@ -1,0 +1,37 @@
+### POST レコード登録
+# 期待レスポンス: HTTP 201 Created + 登録されたレコードのJSON
+POST http://localhost:8085/api/records
+Content-Type: application/json
+
+{
+  "name": "Test Record",
+  "description": "Created via VS Code"
+}
+
+### GET 個別レコード取得（ID: 7）
+# 期待レスポンス: HTTP 200 OK + 該当レコードのJSON
+GET http://localhost:8085/api/records/7
+
+### PUT レコード更新（ID: 7）
+# 期待レスポンス: HTTP 200 OK + 更新されたレコードのJSON
+PUT http://localhost:8085/api/records/7
+Content-Type: application/json
+
+{
+  "name": "Updated Record",
+  "description": "Modified via VS Code"
+}
+
+### DELETE レコード削除（ID: 7）
+# 期待レスポンス: HTTP 204 No Content（削除成功）
+DELETE http://localhost:8085/api/records/7
+
+### POST バリデーションエラー確認（nameが空）
+# 期待レスポンス: HTTP 400 Bad Request + エラーメッセージ
+POST http://localhost:8085/api/records
+Content-Type: application/json
+
+{
+  "name": "",
+  "description": "This should fail"
+}

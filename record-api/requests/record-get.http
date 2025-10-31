@@ -1,0 +1,7 @@
+### GET 全レコード取得
+# 期待レスポンス: HTTP 200 OK + レコード一覧のJSON
+GET POST http://localhost:8085/api/records
+
+### GET 個別レコード取得（ID: 8）
+# 期待レスポンス: HTTP 200 OK + 該当レコードのJSON
+GET POST http://localhost:8085/api/records

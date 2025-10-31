@@ -1,0 +1,35 @@
+[
+  {
+    "machine": "LT-1",
+    "kataban": "502",
+    "kataname": "TAILSTOCK BASE",
+    "drawing": "C-32822-0",
+    "comment": "",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-09-02T02:20:33.747Z",
+    "updatedAt": "2025-09-02T02:21:01.675Z"
+  },
+  {
+    "machine": "GSV-25N",
+    "kataban": "601",
+    "kataname": "TABLE SADDLE",
+    "drawing": "B-8085-0",
+    "comment": "3D作成完了",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-09-02T02:21:59.668Z",
+    "updatedAt": "2025-09-03T05:16:01.372Z"
+  },
+  {
+    "machine": "GS-200N",
+    "kataban": "1101",
+    "kataname": "",
+    "drawing": "BASE",
+    "comment": "3D作成完了",
+    "status": "未使用",
+    "createdBy": "admin",
+    "createdAt": "2025-09-03T05:56:19.060Z",
+    "updatedAt": "2025-09-03T05:56:19.060Z"
+  }
+]

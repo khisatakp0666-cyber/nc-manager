@@ -1,0 +1,22 @@
+{
+  "0": {
+    "programName": "MC500_ABC123",
+    "debugDate": "2025-08-22",
+    "debugUser": "admin",
+    "vericutDate": "2025-08-23",
+    "vericutUser": "admin",
+    "comment": "Z軸補正済み。再出力は不要。",
+    "person": "admin",
+    "lastUpdated": "2025-08-22"
+  },
+  "1": {
+    "programName": "MC600_DEF456",
+    "debugDate": "",
+    "debugUser": "",
+    "vericutDate": "",
+    "vericutUser": "",
+    "comment": "",
+    "person": "admin",
+    "lastUpdated": "2025-08-22"
+  }
+}

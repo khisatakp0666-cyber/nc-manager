@@ -1,0 +1,9 @@
+### POST レコード登録
+# 期待レスポンス: HTTP 201 Created + 登録されたレコードのJSON
+POST http://localhost:8085/api/records
+Content-Type: application/json
+
+{
+  "name": "Test Record",
+  "description": "Created via VS Code"
+}

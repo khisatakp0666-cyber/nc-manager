@@ -1,0 +1,7 @@
+### 正しいキーでログ取得
+GET http://localhost:8085/admin/logs
+X-Admin-Key: your-secret-key
+
+### 間違ったキーで拒否されるか確認
+GET http://localhost:8085/admin/logs
+X-Admin-Key: wrong-key

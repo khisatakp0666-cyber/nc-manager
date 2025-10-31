@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>履歴詳細</title>
+  <link rel="stylesheet" href="./css/history.css" />
+  <link rel="icon" href="./assets/favicon.ico" />
+</head>
+
+<body>
+  <h1>履歴詳細入力</h1>
+
+  <form id="historyForm">
+    <label for="programName">📁 プログラム名:</label>
+    <input type="text" id="programName" name="programName" />
+
+    <div class="row-group">
+      <label for="debugDate">🔧 実機デバック日:</label>
+      <input type="date" id="debugDate" name="debugDate" />
+
+      <label for="debugUser">担当者:</label>
+      <input type="text" id="debugUser" name="debugUser" placeholder="担当者名 (任意)" />
+    </div>
+
+    <div class="row-group">
+      <label for="vericutDate">📤 Vericut出力日:</label>
+      <input type="date" id="vericutDate" name="vericutDate" />
+
+      <label for="vericutUser">担当者:</label>
+      <input type="text" id="vericutUser" name="vericutUser" placeholder="担当者名 (任意)" />
+    </div>
+
+    <div class="form-group">
+      <label for="comment">📝 コメント:</label>
+      <textarea id="comment" name="comment" rows="3"></textarea>
+    </div>
+
+    <label for="person">👤 担当者:</label>
+    <input type="text" id="person" name="person" />
+
+    <label for="lastUpdated">🕒 最終更新日:</label>
+    <input type="text" id="lastUpdated" name="lastUpdated" readonly />
+
+    <div class="button-group">
+      <button type="submit" class="button">保存</button>
+      <a href="index.html" class="button">キャンセル</a>
+      <a href="index.html" class="button">一覧に戻る</a>
+    </div>
+  </form>
+
+  <script type="module" src="./js/app.js"></script>
+
+</body>
+
+</html>

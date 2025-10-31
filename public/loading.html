@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ロード中...</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ロード中です。しばらくお待ちください...</h1>
+
+    <script>
+        async function checkApi() {
+            try {
+                const res = await fetch('/health');
+                if (res.ok) {
+                    window.location.href = '/index.html';
+                }
+            } catch (e) {
+                // API未応答 → 何もしない
+            }
+        }
+
+        setInterval(checkApi, 2000); // 2秒ごとに確認
+    </script>
+</body>
+
+</html>

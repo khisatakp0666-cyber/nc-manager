@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV入力</title>
+    <link rel="stylesheet" href="./css/import.css" />
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <h1>📥 CSV入力</h1>
+
+    <!-- 🔙 戻る -->
+    <p><a href="index.html" class="button">🔙 一覧へ戻る</a></p>
+
+    <!-- 📂 ファイル選択と登録 -->
+    <form id="csvImportForm" enctype="multipart/form-data">
+        <input type="file" name="csvfile" id="csvfile" accept=".csv" required />
+        <button type="submit" class="button">📥 登録する</button>
+    </form>
+
+    <!-- 📄 CSVテンプレートダウンロード -->
+    <p><button id="downloadTemplate" class="button">📄 テンプレートをダウンロード</button></p>
+    <label>
+        <input type="checkbox" id="filterExcluded"> 除外行のみ表示
+    </label>
+    <!-- 👀 プレビュー表示 -->
+    <!-- 📊 登録予定件数 -->
+    <p id="recordCount" style="margin-top: 1em;">登録予定件数: 0 件</p>
+    <h2>👀 プレビュー</h2>
+    <div id="previewArea">CSVファイルを選択するとここに内容が表示されます</div>
+
+    <script type="module" src="./js/screens/importScreen.js"></script>
+</body>
+
+</html>

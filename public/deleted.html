@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>削除履歴</title>
+  <link rel="stylesheet" href="./css/deleted.css" />
+  <link rel="icon" href="./assets/favicon.ico" />
+</head>
+
+<body>
+  <h1>削除済み履歴一覧</h1>
+
+  <!-- 一覧ページに戻るボタン -->
+  <a href="index.html" class="button back">↩️ 一覧に戻る</a>
+
+  <!-- 全ての削除履歴を完全削除するボタン -->
+  <button class="button delete-all" onclick="deleteAll()">🗑️ 全てを完全削除</button>
+
+  <!-- 削除履歴テーブル -->
+  <table>
+    <thead>
+      <tr>
+        <th>機名</th>
+        <th>片番</th>
+        <th>片名</th>
+        <th>図番</th>
+        <th>コメント</th>
+        <th>状態</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="deletedTableBody"></tbody>
+  </table>
+
+  <script type="module" src="./js/app.js"></script>
+
+</body>
+
+</html>

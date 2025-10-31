@@ -1,0 +1,71 @@
+# ドキュメント類（任意）
+HELP.md
+
+# ログ関連
+logs/
+*.log
+
+# Javaコンパイル成果物
+*.class
+
+# Gradleビルド成果物
+/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Mavenラッパー
+.mvn/wrapper/maven-wrapper.jar
+
+# Maven退避ファイル
+pom.xml.bak
+
+# STS（Spring Tool Suite）
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# Java & Gradle
+/build/
+/target/
+/.gradle/
+/out/
+
+# IDE設定
+.idea/
+.vscode/
+
+# 実行データ
+data/*.json
+
+# ログ・一時ファイル
+*.log
+*.tmp
+
+# Node.js関連
+node_modules/
+nc-manager/node_modules/
+
+# OS・エディタ系
+.DS_Store
+Thumbs.db
+

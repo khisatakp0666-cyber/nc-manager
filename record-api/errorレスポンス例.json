@@ -1,0 +1,4 @@
+{
+    "name": "must not be blank",
+    "description": "must be at most 255 characters"
+}

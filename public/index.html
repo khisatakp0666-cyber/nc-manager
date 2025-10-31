@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ CSPヘッダー（8085を許可） -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3000 http://c20:3000 http://localhost:8085; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+
+  <title>NCプログラム一覧</title>
+
+  <!-- 🎨 スタイル・アイコン -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/assets/favicon.ico" />
+</head>
+
+<body>
+  <!-- 🔷 ヘッダー -->
+  <h1>NCプログラム一覧</h1>
+
+  <!-- 🔗 操作リンク -->
+  <div class="action-links">
+    <a href="new.html" class="button">＋ 新規作成</a>
+    <a href="deleted.html" class="button">📜削除履歴</a>
+    <a href="export.html" class="button">📥📤 CSV入出力</a>
+    <div id="entryCount">件数：0件</div>
+  </div>
+  <hr />
+
+  <!-- 🔍 検索入力欄 -->
+  <div class="search-block">
+    <label for="searchMachine">機名:</label>
+    <input type="text" id="searchMachine" name="searchMachine" class="input-wide" />
+
+    <label for="searchKataban">片番:</label>
+    <input type="text" id="searchKataban" name="searchKataban" class="input-wide" />
+
+    <label for="searchDrawing">図番:</label>
+    <input type="text" id="searchDrawing" name="searchDrawing" class="input-wide" />
+
+    <label for="searchComment">コメント:</label>
+    <input type="text" id="searchComment" name="searchComment" class="input-wide" />
+
+    <button class="button" onclick="filterTable()">検索</button>
+    <button class="button" onclick="showAll()">すべて表示</button>
+  </div>
+
+  <!-- ✅ 状態別フィルタ -->
+  <div class="filter-block">
+    <button class="button" onclick="filterByState('未使用')">未使用のみ表示</button>
+    <button class="button" onclick="filterByState('使用済み')">使用済みのみ表示</button>
+    <button class="button" onclick="showAll()">すべて表示</button>
+  </div>
+
+  <!-- 📋 一覧テーブル -->
+  <table id="ncTable">
+    <thead>
+      <tr>
+        <th class="sortable" onclick="sortTableBy('machine')">機名 🔃</th>
+        <th class="sortable" onclick="sortTableBy('kataban')">片番 🔃</th>
+        <th class="sortable" onclick="sortTableBy('kataname')">片名 🔃</th>
+        <th class="sortable" onclick="sortTableBy('drawing')">図番 🔃</th>
+        <th>コメント</th>
+        <th>状態</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- ✅ JavaScript -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+
+</html>
